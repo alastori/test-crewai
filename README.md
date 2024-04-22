@@ -3,6 +3,8 @@
 A few tests with Crew.AI platform based on [official docs](
 https://docs.crewai.com/how-to/Creating-a-Crew-and-kick-it-off/).
 
+Some tips collected from [Matthew Berman](https://www.youtube.com/watch?v=iJjSjmZnNlI).
+
 
 ## Pre-reqs
 
@@ -41,60 +43,16 @@ pip 24.0 from /Users/alastori/Code/test-crewai/lib/python3.12/site-packages/pip 
 ```
 
 ### File .gitignore
-```
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-env/
-venv/
-*.egg-info/
-*.egg
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-.coverage
-.coverage.*
-.hypothesis/
-*.xml
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Other
-.DS_Store
-```
+Create a `.gitignore` similar to one in this repo.
 
 ### Serper Key (Google Search API)
-
 Go to [Seper website](https://serper.dev/), and get the API key.
 
 ### OpenAI Key
-
 Go to [OpenAI](https://platform.openai.com/settings/profile?tab=api-keys) wesite, create the API key.
 
 ### File .env
-
 Create `~\env\.env` file with environment variables:
-
 ```
 SERPER_API_KEY=
 OPENAI_API_KEY=
@@ -102,8 +60,12 @@ OPENAI_API_KEY=
 
 
 ## Install CrewAI
-
 ```
 (test-crewai) % pip install crewai
 (test-crewai) % pip install 'crewai[tools]'
 ```
+
+## Agents, Tasks, Crew, Run!
+As seen in this repo:
+- `~/technology_research_crew/research_ai_in_healthcare.py`
+
