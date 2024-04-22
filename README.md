@@ -67,5 +67,5 @@ OPENAI_API_KEY=
 
 ## Agents, Tasks, Crew, Run!
 As seen in this repo:
+- `~/technology_research_crew/research_cloud_databases_market_segments.py`
 - `~/technology_research_crew/research_ai_in_healthcare.py`
-
