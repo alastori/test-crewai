@@ -8,10 +8,20 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
-venv/
 *.egg-info/
 *.egg
+
+# Virtual Environment
+venv/
+.venv/
+ENV/
+env/
+bin/
+include/
+lib/
+lib64/
+share/
+pyvenv.cfg
 
 # Installer logs
 pip-log.txt
