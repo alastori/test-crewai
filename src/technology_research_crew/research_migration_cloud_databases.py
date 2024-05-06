@@ -20,13 +20,13 @@ search_tool = SerperDevTool()
 # Creating a senior researcher agent with memory and verbose mode
 researcher = Agent(
   role='Senior Researcher',
-  goal='Uncover methods, tools, and best practices in {topic}',
+  goal='Uncover problems, solutions (methods, tools, and best practices), and opportunities in {topic}',
   verbose=True,
   memory=True,
   backstory=(
-    "Driven by curiosity, you're at the forefront of"
-    "innovation, eager to explore and share knowledge that could move"
-    "the industry to another level."
+    "Driven by curiosity, you're at the forefront of database technologies innovation,"
+    "eager to explore real customer problems, how they are soved today,"
+    "identify gaps, and brainstorm new solutions that could move the industry to another level."
   ),
 
   tools=[search_tool],
@@ -43,8 +43,8 @@ writer = Agent(
   backstory=(
     "With a flair for simplifying complex topics, you craft"
     "engaging reports that are comprehensive and well structured,"
-    "organizing concepts in taxonomies, bringing trends and existing,"
-    "technologies to light in an accessible manner."
+    "organizing concepts in taxonomies, in an accessible manner."
+    "You prefer to write your reports in topics and subtopics."
   ),
   tools=[search_tool],
   allow_delegation=False
@@ -55,14 +55,17 @@ from crewai import Task
 # Research task
 research_task = Task(
   description=(
-    "Identify the major existing methods, tools, and best practices,"
+    "Identify the major existing services, tools, methods, and best practices,"
     "and the next big trends in {topic}."
-    "Focus on identifying pros and cons and the overall narrative."
-    "Your final report should clearly articulate the key points,"
-    "strenghts, and weaknesses, market opportunities, and potential risks."
+    "Prefer technical documentation, tutorials, and engineering blog posts,"
+    "user forums, knowlege bases, and scientific papers as the main source."
+    "Focus on clearly stating the problem, identifying existing solutions,"
+    "the pros and cons, exiting gaps, and potential new and better solutions."
+    "Your final report should clearly articulate the problem, the solutions,"
+    "the strenghts, and weaknesses, the opportunities, and the main risks to be addressed."
   ),
 
-  expected_output='A comprehensive 5 paragraphs long technical report.',
+  expected_output='A comprehensive 10 paragraphs long technical report.',
   tools=[search_tool],
   agent=researcher,
 
@@ -72,13 +75,13 @@ research_task = Task(
 write_task = Task(
   description=(
     "Compose an insightful report on {topic}."
-    "Focus on the existing methods and tools, and the latest trends,"
-    "and how it's impacting the users and the industry."
-    "This article should be structure from major concepts to detais,"
-    "and easy to understand."
+    "Focus on the existing problems, and solutions, as methods, services and tools,"
+    "their gaps, and the potential opportunities based on the latest trends of the industry."
+    "This article should be structure from major concepts to details, with topics and subtopics."
+    "The conclusion should clearly list the opportunities to explore."
   ),
 
-  expected_output='A 10 paragraph report on {topic} advancements formatted as markdown.',
+  expected_output='A 20 paragraph report on {topic} advancements formatted as markdown.',
   tools=[search_tool],
   agent=writer,
   async_execution=False,
@@ -101,5 +104,5 @@ crew = Crew(
 
 
 # Starting the task execution process with enhanced feedback
-result = crew.kickoff(inputs={'topic': 'Cloud databases migration tools and services compatible with MySQL'})
+result = crew.kickoff(inputs={'topic': 'Cloud databases migration tools and services, with focus on MySQL as a target'})
 print(result)
